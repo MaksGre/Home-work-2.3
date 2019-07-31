@@ -17,17 +17,16 @@ print("\nTask 2")
 
 for item in array {
 
-    if item is Int {
+    switch item {
+    case _ as Int:
         print("Целое число \(item)")
-    }
-    if item is Double {
+    case _ as Double:
         print("Вещественное число \(item)")
-    }
-    if item is String {
+    case _ as String:
         print("Строка \(item)")
-    }
-    if item is Bool {
+    case _ as Bool:
         print("Булевое значение \(item)")
+    default: break
     }
 }
 /*:
@@ -57,21 +56,16 @@ var total: Double = 0
 
 for (_, value) in dictionary {
     
-    if let value = value as? Int {
-        total += Double(value)
-    }
-    if let value = value as? Double {
-        total += value
-    }
-    if let _ = value as? String {
-        total += 1
-    }
-    if let value = value as? Bool {
-        if value {
-            total += 2
-        } else {
-            total += 3
-        }
+    switch value {
+    case let value as Int:
+            total += Double(value)
+    case let value as Double:
+            total += value
+    case _ as String:
+            total += 1
+    case let value as Bool:
+        total += value ? 2 : 3
+    default: break
     }
 }
 
@@ -85,16 +79,16 @@ total = 0
 
 for (_, value) in dictionary {
     
-    if let value = value as? Int {
+    switch value {
+    case let value as Int:
         total += Double(value)
-    }
-    if let value = value as? Double {
+    case let value as Double:
         total += value
-    }
-    if let value = value as? String {
+    case let value as String:
         if let value = Double(value) {
             total += value
         }
+    default: break
     }
 }
 
