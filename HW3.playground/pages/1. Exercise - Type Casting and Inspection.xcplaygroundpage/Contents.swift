@@ -18,13 +18,13 @@ print("\nTask 2")
 for item in array {
 
     switch item {
-    case _ as Int:
+    case is Int:
         print("Целое число \(item)")
-    case _ as Double:
+    case is Double:
         print("Вещественное число \(item)")
-    case _ as String:
+    case is String:
         print("Строка \(item)")
-    case _ as Bool:
+    case is Bool:
         print("Булевое значение \(item)")
     default: break
     }
@@ -34,15 +34,15 @@ for item in array {
  */
 print("\nTask 3")
 
-var dictionary = [String: Any]()
-dictionary["1"] = 0.111
-dictionary["2"] = "Moscow"
-dictionary["3"] = 512
-dictionary["4"] = 12.31
-dictionary["5"] = "10000"
-dictionary["6"] = 1025
-dictionary["7"] = true
-dictionary["8"] = !true
+let dictionary: [String: Any] = [
+    "1": 0.111,
+    "2": "Moscow",
+    "3": 512,
+    "4": 12.31,
+    "5": "10000",
+    "6": 1025,
+    "7": true,
+    "8": !true]
 
 for (key, value) in dictionary {
     print("Ключ: \(key), значение \(value)")
@@ -61,7 +61,7 @@ for (_, value) in dictionary {
             total += Double(value)
     case let value as Double:
             total += value
-    case _ as String:
+    case is String:
             total += 1
     case let value as Bool:
         total += value ? 2 : 3

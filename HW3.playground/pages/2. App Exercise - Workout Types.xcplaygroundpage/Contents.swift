@@ -59,8 +59,7 @@ func describeSwim(swimmingWorkout: Swim) {
 for workout in workouts {
     if let workout = workout as? Run {
         describeRun(runningWorkout: workout)
-    }
-    if workout is Swim {
+    } else if workout is Swim {
         describeSwim(swimmingWorkout: workout as! Swim)
     }
 }
